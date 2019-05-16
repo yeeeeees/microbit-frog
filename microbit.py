@@ -1,4 +1,3 @@
-# Add your Python code here. E.g.
 from microbit import *
 import random
 
@@ -76,10 +75,9 @@ while frog.isAlive:
     if int(running_time()/5000) == counter_spawn:
         counter_spawn += 1
         #display.scroll(len(cars))
-        if len(cars) < 4:
+        if len(cars) < 20:
             car = Car()
     for i in cars:
         for j in i.parts:
             if (frog.x, frog.y) == (j[0], j[1]):
                 frog.die()
-        #display.scroll(str(int(running_time()/1000)))
