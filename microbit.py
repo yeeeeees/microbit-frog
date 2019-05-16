@@ -25,14 +25,12 @@ class Frog():
             self.x -=1
         display.set_pixel(self.x, self.y, self.brightness)  
     def die(self):
-        global score
+        #global score
         self.isAlive = False
         display.scroll("u ded fam")
         display.scroll("score : " + str(score))
-        score = 0
         display.clear()
         
-             
 class Car():
     def __init__(self):
         global cars
@@ -62,9 +60,7 @@ class Car():
 frog = Frog(2)
 cars = []
 car = Car()
-cars.append(car)
 counter_spawn = 0
-spawn_time = 5000
 counter_move = 0
 score = 0
 
@@ -73,15 +69,15 @@ while frog.isAlive:
         frog.strafe("left")
     if button_b.was_pressed():
         frog.strafe("right")
-    if int(running_time()/600) != counter_move:
+    if int(running_time()/600) == counter_move:
         counter_move += 1
         for i in cars:
             i.move_down()
-    if int(running_time()/2000) != counter_spawn:
+    if int(running_time()/5000) == counter_spawn:
         counter_spawn += 1
+        #display.scroll(len(cars))
         if len(cars) < 4:
             car = Car()
-            cars.append(car)
     for i in cars:
         for j in i.parts:
             if (frog.x, frog.y) == (j[0], j[1]):
