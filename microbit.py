@@ -1,4 +1,3 @@
-
 from microbit import *
 import random
 
@@ -81,6 +80,7 @@ class Car():
     def reset(self):
         self.game.try_set_pixel(self.x, self.y-1, 0)
         self.game.score += 1
+        self.x = random.randint(0,4)
         self.update(self.y+1)
 
 game = Game()
