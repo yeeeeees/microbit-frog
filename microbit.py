@@ -1,3 +1,4 @@
+
 from microbit import *
 import random
 
@@ -66,7 +67,6 @@ class Car():
         self.y = 0
         self.parts = [[self.x, self.y], [self.x, self.y-1]]
         self.brightness = 4
-        self.isOnScreen = True
         self.game.try_set_pixel(self.x, self.y, self.brightness)
     def move_down(self):
         if self.y != 6:
@@ -79,11 +79,9 @@ class Car():
         self.game.try_set_pixel(self.x, self.y-2, 0)
         self.game.try_set_pixel(self.x, self.y, self.brightness)
     def reset(self):
-        if self.isOnScreen:
-            self.game.try_set_pixel(self.x, self.y-1, 0)
-            self.isOnScreen = False
-            self.game.score += 1
-            self.update(self.y+1)
+        self.game.try_set_pixel(self.x, self.y-1, 0)
+        self.game.score += 1
+        self.update(self.y+1)
 
 game = Game()
 game.start()
