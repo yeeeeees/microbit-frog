@@ -22,7 +22,7 @@ class Game():
                 self.counter_move += 1
                 for i in self.cars:
                     i.move_down()
-            if int(running_time()/5000) == self.counter_spawn:
+            if int(running_time()/2000) == self.counter_spawn:
                 self.counter_spawn += 1
                 #display.scroll(len(cars))
                 if len(self.cars) < 20:
