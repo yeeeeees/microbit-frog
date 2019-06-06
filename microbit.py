@@ -18,11 +18,11 @@ class Game():
                 self.frog.strafe("left")
             if button_b.was_pressed():
                 self.frog.strafe("right")
-            if int(running_time()/600) == self.counter_move:
+            if int(running_time()/600) > self.counter_move:
                 self.counter_move += 1
                 for i in self.cars:
                     i.move_down()
-            if int(running_time()/2000) == self.counter_spawn:
+            if int(running_time()/2000) > self.counter_spawn:
                 self.counter_spawn += 1
                 #display.scroll(len(cars))
                 if len(self.cars) < 20:
